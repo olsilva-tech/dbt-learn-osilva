@@ -1,4 +1,4 @@
-Welcome to your new dbt project!
+Welcome to your new Orlando Silva dbt project!
 
 ### Using the starter project
 

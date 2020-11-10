@@ -1,4 +1,1 @@
-select
-    *
-
-from raw.stripe.payment
+select * from raw.stripe.payment

@@ -15,6 +15,8 @@ orders as (
     select * from raw.jaffle_shop.orders
 ),
 
+
+
 final as (
     select
         orders.id as order_id,

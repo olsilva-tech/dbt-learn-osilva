@@ -1,5 +1,40 @@
 version: 2
 
+sources:
+  - name: jaffle_shop
+    database: raw
+    tables:
+      - name: customers
+        columns:
+          - name: id
+            tests:
+              - not_null
+              - unique
+      - name: orders
+        columns:
+          - name: id
+            tests:
+              - not_null
+              - unique
+        loaded_at_field: _etl_loaded_at
+        freshness:
+          warn_after: {count: 12, period: hour}
+          error_after: {count: 24, period: hour}
+
+  - name: stripe
+    database: raw
+    tables:
+      - name: payment
+        columns:
+          - name: id
+            tests:
+              - not_null
+              - unique
+        loaded_at_field: _batched_at
+        freshness:
+          warn_after: {count: 12, period: hour}
+          error_after: {count: 24, period: hour}
+
 models:
   - name: customers
     description: "{{ doc('customers') }}"
@@ -11,6 +46,30 @@ models:
           - not_null
       - name: first_order_date
         description: NULL when a customer has not yet placed an order.
+      - name: lifetime_value
+        description: Total amount of money expended by this customer.
+        tests: 
+          - not_null
+
+  - name: orders
+    description: "Orders transformed data containing the total amount for each order"
+    columns:
+      - name: order_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: amount
+        description: total amount for each order.
+
+  - name: stg_payments
+    description: This model cleans up payments data
+    columns:
+      - name: id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
 
   - name: stg_customers
     description: This model cleans up customer data

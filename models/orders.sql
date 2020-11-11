@@ -8,7 +8,7 @@ with
 
 payments as (
     select
-        orderid as order_id,
+        order_id as order_id,
         sum(amount) as total_amount,
         total_amount / 100 as total_amount_dollars
 

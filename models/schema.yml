@@ -21,6 +21,13 @@ sources:
           warn_after: {count: 12, period: hour}
           error_after: {count: 24, period: hour}
 
+  - name: ticket_tailor
+    database: raw
+    tables:
+      - name: orders
+      - name: events
+      - name: issued_tickets
+
   - name: stripe
     database: raw
     tables:

@@ -52,3 +52,10 @@ select * from {{ ref('stg_payments') }}
 
 select *
 from pivot
+
+
+
+### How To generate staging models based on the sources:
+
+https://hub.getdbt.com/fishtown-analytics/codegen/latest/
+{{ codegen.generate_base_model(source_name='ticket_tailor', table_name='orders') }}

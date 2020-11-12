@@ -59,3 +59,17 @@ from pivot
 
 https://hub.getdbt.com/fishtown-analytics/codegen/latest/
 {{ codegen.generate_base_model(source_name='ticket_tailor', table_name='orders') }}
+
+
+
+### LINKS
+https://fka50167.snowflakecomputing.com/console#/internal/worksheet
+https://cloud.getdbt.com/#/accounts/7931/projects/12900/develop/
+https://hub.getdbt.com/fishtown-analytics/codegen/latest/
+https://hub.getdbt.com/fishtown-analytics/dbt_utils/latest/
+https://learn.getdbt.com/lessons/assignment
+https://jinja.palletsprojects.com/en/2.11.x/
+https://docs.getdbt.com/docs/building-a-dbt-project/hooks-operations
+https://docs.getdbt.com/reference/dbt-jinja-functions/run_query/
+https://github.com/fishtown-analytics/dbt-utils
+https://learn.getdbt.com/lessons/case-study#2
